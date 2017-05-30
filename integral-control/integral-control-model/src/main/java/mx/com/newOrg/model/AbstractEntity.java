@@ -49,12 +49,14 @@ public abstract class AbstractEntity<T extends Serializable>
 
     public Date getLastModifiedDate() {
 
-        return lastModifiedDate;
+        return lastModifiedDate == null ? null
+            : (Date) lastModifiedDate.clone();
     }
 
     public void setLastModifiedDate(Date lastModifiedDate) {
 
-        this.lastModifiedDate = lastModifiedDate;
+        this.lastModifiedDate =
+            lastModifiedDate == null ? null : (Date) lastModifiedDate.clone();
     }
 
 }

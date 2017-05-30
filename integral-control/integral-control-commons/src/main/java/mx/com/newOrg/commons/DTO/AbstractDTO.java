@@ -24,6 +24,6 @@ public abstract class AbstractDTO<T extends Serializable>
 
     public abstract boolean equals(Object obj);
 
-    public abstract int hashcode();
+    public abstract int hashCode();
 
 }

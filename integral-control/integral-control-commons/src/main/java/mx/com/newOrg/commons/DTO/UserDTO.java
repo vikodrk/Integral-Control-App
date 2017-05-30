@@ -102,7 +102,7 @@ public class UserDTO extends AbstractDTO<Long> {
     }
 
     @Override
-    public int hashcode() {
+    public int hashCode() {
 
         return new HashCodeBuilder().append(id).build();
     }
