@@ -15,6 +15,8 @@ public class ThirtUserServiceImpl implements IThirtUserService {
 
     private static int count = 0;
 
+    private static int addressCount = 0;
+
     private static CustomAppCache<Long, ThirtUserDTO, ThirtUserDO> LOCAL_CACHE =
         new CustomAppCache<Long, ThirtUserDTO, ThirtUserDO>();
 
@@ -23,8 +25,10 @@ public class ThirtUserServiceImpl implements IThirtUserService {
         ThirtUserDO userDO = ThirtUserTransformer.transformDTO(dto);
         userDO.setUserId(Long.valueOf(count++));
         userDO.setPass(StringHash.sha512(userDO.getPass()));
+        userDO.getAddress().setAddressId(Long.valueOf(addressCount++));
         dto.setId(userDO.getUserId());
         dto.setPass(userDO.getPass());
+        dto.getAddress().setId(userDO.getAddress().getAddressId());
         LOCAL_CACHE.putOnCache(userDO.getUserId(), dto, userDO);
 
     }
@@ -52,7 +56,7 @@ public class ThirtUserServiceImpl implements IThirtUserService {
             list.add(LOCAL_CACHE.getFromCache(iterator));
         }
 
-        return null;
+        return list;
     }
 
     public ThirtUserDTO findById(Long id) {
