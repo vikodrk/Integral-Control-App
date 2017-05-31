@@ -12,11 +12,23 @@ public class ReportDTO extends AbstractSignedDTO<Long> {
      */
     private static final long serialVersionUID = 3632397733277513899L;
 
+    private long assignedId;
+
     private String message;
 
     private String shortMessage;
 
     private Date reviewDate;
+
+    public long getAssignedId() {
+
+        return assignedId;
+    }
+
+    public void setAssignedId(long assignedId) {
+
+        this.assignedId = assignedId;
+    }
 
     public String getMessage() {
 

@@ -1,5 +1,7 @@
 package mx.com.newOrg.model.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -51,6 +53,18 @@ public class UserDO extends AbstractSignedEntity<Long> {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "USER_TYPE_ID")
     private UserTypeDO userType;
+
+    private List<ReportDO> madeReports;
+
+    public List<ReportDO> getMadeReports() {
+
+        return madeReports;
+    }
+
+    public void setMadeReports(List<ReportDO> madeReports) {
+
+        this.madeReports = madeReports;
+    }
 
     public UserTypeDO getUserType() {
 

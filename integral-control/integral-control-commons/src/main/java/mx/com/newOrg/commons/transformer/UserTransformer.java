@@ -30,6 +30,7 @@ public final class UserTransformer {
 
         UserDO entity = new UserDO();
 
+        entity.setUserId(dto.getId());
         entity.setFirstName(dto.getFirstName());
         entity.setLastName(dto.getLastName());
         entity.setName(dto.getName());

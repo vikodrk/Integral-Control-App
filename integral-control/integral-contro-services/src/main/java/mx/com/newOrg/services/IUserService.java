@@ -20,5 +20,7 @@ public interface IUserService {
     List<UserDTO> findAll();
 
     List<UserDTO> findByType(UserTypeEnum userType);
+    
+    boolean loginProcessUser(String username, String password);
 
 }

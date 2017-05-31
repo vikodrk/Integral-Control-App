@@ -16,11 +16,23 @@ public class ReportDO extends AbstractEntity<Long> {
 
     private Long reportId;
 
+    private Long assingUserId;
+
     private String shortMessage;
 
     private String message;
 
     private Date reviewDate;
+
+    public Long getAssingUserId() {
+
+        return assingUserId;
+    }
+
+    public void setAssingUserId(Long assingUserId) {
+
+        this.assingUserId = assingUserId;
+    }
 
     public Long getReportId() {
 
@@ -79,6 +91,7 @@ public class ReportDO extends AbstractEntity<Long> {
 
     @Override
     public int hashCode() {
+
         return new HashCodeBuilder().append(reportId).build();
     }
 

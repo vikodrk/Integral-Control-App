@@ -25,6 +25,7 @@ public class UserServiceImpl implements IUserService {
         entity.setUserId(Long.valueOf(userCount++));
         entity.setPasswd(StringHash.sha384S(entity.getPasswd()));
         user.setId(entity.getUserId());
+        user.setPasswd(entity.getPasswd());
         USER_CACHE.putOnCache(entity.getUserId(), user, entity);
 
     }
@@ -78,6 +79,19 @@ public class UserServiceImpl implements IUserService {
 
         // TODO Auto-generated method stub
         return null;
+    }
+
+    public boolean loginProcessUser(String username, String password) {
+
+        boolean flag = false;
+        
+        if(findUserByName(username)!=null)
+        {
+            UserDTO dto = findUserByName(username);
+            flag = dto.getPasswd().equals(StringHash.sha512(password));
+        }
+        
+        return flag;
     }
 
 }
