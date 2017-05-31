@@ -81,4 +81,19 @@ public class ReportDTO extends AbstractSignedDTO<Long> {
         return new HashCodeBuilder().append(id).build();
     }
 
+    @Override
+    public String toString() {
+
+        StringBuilder builder = new StringBuilder();
+
+        builder.append(" [ ").append(id).append(" ] ");
+        builder.append("\t -- ").append(shortMessage).append(" - ")
+            .append(reviewDate).append(" - ").append(" --\n");
+        builder.append(message).append("\n").append(" { ")
+            .append(getLastUserId()).append(" - ").append(getLastDateEdit())
+            .append(" } ");
+
+        return builder.toString();
+    }
+
 }

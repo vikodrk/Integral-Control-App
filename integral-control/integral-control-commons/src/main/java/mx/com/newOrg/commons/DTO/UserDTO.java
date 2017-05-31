@@ -107,4 +107,17 @@ public class UserDTO extends AbstractDTO<Long> {
         return new HashCodeBuilder().append(id).build();
     }
 
+    @Override
+    public String toString() {
+
+        StringBuilder builder = new StringBuilder();
+
+        builder.append(" [ ").append(id).append(" ] ");
+        builder.append(name).append(" ").append(firstName).append(" ")
+            .append(lastName);
+        builder.append(" { ").append(userName).append(" }");
+
+        return builder.toString();
+    }
+
 }

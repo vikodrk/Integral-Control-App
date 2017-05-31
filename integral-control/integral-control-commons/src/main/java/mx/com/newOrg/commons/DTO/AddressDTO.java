@@ -127,4 +127,16 @@ public class AddressDTO extends AbstractDTO<Long> {
         return new HashCodeBuilder().append(id).build();
     }
 
+    @Override
+    public String toString() {
+
+        StringBuilder builder = new StringBuilder();
+        builder.append(" [ ").append(id).append(" ] ").append(street)
+            .append(" ");
+        builder.append(externalNo).append(", ").append(internalNo).append(", ");
+        builder.append(state).append(", ").append(country).append(". ")
+            .append(zipCode);
+        return builder.toString();
+    }
+
 }
